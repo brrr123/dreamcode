@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Breed Information</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <div class="breed">
+            <h1> {{breedInfo.name }}</h1>
+            <h4> {{breedInfo.temperament}}</h4>
+            <div class="desc">
+                <p><strong>Origin:</strong> {{ breedInfo.origin }}</p>
+                <p><strong>Lifespan:</strong> {{ breedInfo.lifespan }} years</p>
+                <p><strong>Weight:</strong> {{ breedInfo.weight.imperial }} lbs (imperial) / {{ breedInfo.weight.metric }} kg (metric)</p>
+                <p class="info"><strong>Description:</strong> {{breedInfo.description }}</p>
+                <p>
+                    <strong>Wikipedia:</strong> <a class="wiki" v-bind:href="breedInfo.wikipedia_url">
+                        {{breedInfo.name }}
+                    </a>
+                </p>
+                <img v-bind:src="'https://cdn2.thecatapi.com/images/'+breedInfo.reference_image_id+'.jpg'" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="breeds.js"></script>
+

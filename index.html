@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 random cats</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div v-for="cat in cats" class="pic" v-bind:id="cat.id">
+                <a v-bind:href="'breed.html?breed=' + cat.breeds[0]['id']">
+                    <img v-bind:src="cat.url" />
+                    </a>
+
+                <div class="breed">
+                    <a v-bind:href="'breed.html?breed=' + cat.breeds[0]['id']">{{ cat.breeds[0]["name"] }}</a>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button @click="fetchData" class="load-more">Show 3 random cats</button>
+        </div>
+
+
+    </div>
+</body>
+</html>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="cats.js"></script>
+
+
